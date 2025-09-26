@@ -11,3 +11,11 @@ Created docker-compose.yml with 2 containers mysql and application
 Had to choose right mysql version to make sure the already loaded mysqldump.sql runs at dockerentrypoint.db
 
 It worked
+
+
+Next Goals:
+Deploy it in local k8s cluster
+Make it secure
+create helm chart
+create terraform script
+Create a Jenkins pipeline
