@@ -1,0 +1,9 @@
+Dockerize the application by creating Docker image using Dockerfile
+Build the image with the following command and then run docker container for it
+
+$ docker build -t foodfrenzyimage:v01 .
+
+$ docker run --name foodfrenzycontainer8 -d -p 9090:8080 -e SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/food_frenzy_db -e SPRING_DATASOURCE_USERNAME=root -e SPRING_DATASOURCE_PASSWORD=carbon123 foodfrenzyimage:v01
+
+Above command used db that is locally hosted. But to have our db run inside a container we need docker-compose.yml and run the db container along with app container
+
