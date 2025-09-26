@@ -7,3 +7,7 @@ $ docker run --name foodfrenzycontainer8 -d -p 9090:8080 -e SPRING_DATASOURCE_UR
 
 Above command used db that is locally hosted. But to have our db run inside a container we need docker-compose.yml and run the db container along with app container
 
+Created docker-compose.yml with 2 containers mysql and application
+Had to choose right mysql version to make sure the already loaded mysqldump.sql runs at dockerentrypoint.db
+
+It worked
