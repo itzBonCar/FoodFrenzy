@@ -1,4 +1,4 @@
-Dockerize the application by creating Docker image using Dockerfile
+#### Dockerize the application by creating Docker image using Dockerfile
 Build the image with the following command and then run docker container for it
 
 $ docker build -t foodfrenzyimage:v01 .
@@ -11,6 +11,30 @@ Created docker-compose.yml with 2 containers mysql and application
 Had to choose right mysql version to make sure the already loaded mysqldump.sql runs at dockerentrypoint.db
 
 It worked
+
+### CREATING CUSTOM MYSQL IMAGE WITH DUMP ADDED (not preferred). ALso push it onto dockerhub
+create Dockerfile.mysql (2nd Dockerfile)
+
+Pass secrets at runtime or create .env file(check next section)
+docker run -d \
+  --name mysqlsecure \
+  -e MYSQL_ROOT_PASSWORD=carbon123 \
+  -e MYSQL_DATABASE=food_frenzy_db \
+  -e MYSQL_USER=carbon \
+  -e MYSQL_PASSWORD=carbon123 \
+  yourusername/foodfrenzy-mysql:latest
+
+### Docker-compose pulls env vars from .env file (which is not supposed to be loaded onto github)
+create and load .env file with secrets
+
+$ docker-compose up -d --build
+
+If .env file in different folder
+$ docker-compose --env-file ./config/myenv up -d --build
+
+.env is put in gitignore
+
+### 
 
 
 Next Goals:
