@@ -18,6 +18,29 @@ $ git checkout -b <new-branch-name>
 $ git merge <branch-to-merge>
 
 
+#### Imp docker commands
+
+$ docker login
+$ docker tag <image-name>:latest itzboncar/<image-name>:latest
+$ docker push itzboncar/<image-name>:latest
+$ docker pull itzboncar/<image-name>:latest
+$ docker build -t <image-name>:latest .
+$ docker build -f Dockerfile.mysql -t <image-name>:latest .
+$ docker run --name foodfrenzycontainer8 -d -p 9090:8080 -e SPRING_DATASOURCE_URL=jdbc:mysql://host.docker.internal:3306/food_frenzy_db -e SPRING_DATASOURCE_USERNAME=root -e SPRING_DATASOURCE_PASSWORD=carbon123 foodfrenzyimage:v01
+$ docker ps 
+$ docker ps -a 
+$ docker images
+
+$ docker exec -it <container-name> mysql -u root -p
+>SHOW DATABASES;
+USE food_frenzy_db;
+SHOW TABLES;
+SELECT * FROM admin;
+
+$ docker logs <container-name>
+
+
+
 #### Dockerize the application by creating Docker image using Dockerfile
 Build the image with the following command and then run docker container for it
 
@@ -68,7 +91,7 @@ $ docker-compose down --rmi all (removes all images)
 
 
 
-Next Goals:
+##### NEXT GOALS:
 Deploy it in local k8s cluster
 Make it secure
 create helm chart
