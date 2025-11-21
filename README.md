@@ -16,10 +16,21 @@ FoodFrenzy is a comprehensive system designed for managing customers, inventory,
 
 ## Technology Stack
 
+Development
 - **Backend**: Spring Boot, Java 8, Spring MVC, Spring Data JPA (Hibernate)
 - **Frontend**: Thymeleaf, HTML, CSS, JavaScript
 - **Database**: MySQL
 - **IDE**: Eclipse, Spring Tool Suite (STS)
+
+Deployment
+- Docker
+- Kubernetes
+- Jenkins
+- Helm Charts
+
+## For Deployment Steps
+
+- READ Deployment_Notes.txt
 
 ## Setup and Installation
 
