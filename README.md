@@ -25,7 +25,7 @@ Deployment
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-repository-url/FoodFrenzy.git
+    git clone https://github.com/itzBonCar/FoodFrenzy.git
     ```
 
 2. Navigate to the project directory:
@@ -49,7 +49,8 @@ Deployment
     ```
 
 5. Access the application:
-    - Navigate to `http://localhost:8080` in your browser. 
+    - Navigate to `http://localhost:8080` in your browser.
+
 ## Website Screenshot
 
 Here is a preview of the FoodFrenzy interface:
