@@ -30,7 +30,7 @@ Deployment
 
 ## For Deployment Steps
 
-- READ Deployment_Notes.txt
+- **READ Deployment_Notes.txt**
 
 ## Setup and Installation
 
