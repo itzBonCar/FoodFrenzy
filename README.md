@@ -4,41 +4,28 @@ FoodFrenzy is a comprehensive system designed for managing customers, inventory,
 ![Screenshot 2024-10-02 123332](https://github.com/user-attachments/assets/1382d32f-3cbb-40c3-b6b5-9fc55cd5176f)
 
 
-## Features
-
-- **Customer Management**: Easily add, update, and delete customer information.
-- **Inventory Management**: Keep track of your inventory items, including stock levels and pricing.
-- **Order Management**: Manage customer orders, including order creation, updates, and status tracking.
-- **User Authentication**: Secure login and authentication for admin and staff members.
-- **Role-Based Access Control**: Define roles and permissions for different user types.
-- **Thymeleaf Templates**: Utilizes Thymeleaf for dynamic HTML templates.
-- **Database Integration**: Integrated with MySQL for data storage and retrieval.
-
 ## Technology Stack
 
-- **Backend**: Spring Boot, Java 8, Spring MVC, Spring Data JPA (Hibernate)
-- **Frontend**: Thymeleaf, HTML, CSS, JavaScript
-- **Database**: MySQL
-- **IDE**: Eclipse, Spring Tool Suite (STS)
+Development
+- Backend: Spring Boot, Java 8, Spring MVC, Spring Data JPA (Hibernate)
+- Frontend: Thymeleaf, HTML, CSS, JavaScript
+- Database: MySQL
 
-## Prerequisites
+Deployment
+- Docker
+- Kubernetes
+- Jenkins
+- Helm Charts
 
-Before running this project, ensure you have the following installed:
+## For Deployment Steps
 
-- Java 8
-- MySQL
-- Maven
-- Eclipse or Spring Tool Suite (STS)
+- **READ Deployment_Notes.txt**
 
 ## Setup and Installation
-# 🎁 Donate
 
-<a href="https://buymeacoffee.com/1122anuragg">
-  <img src="https://user-images.githubusercontent.com/25067102/154570688-9e143f2b-fee3-4b05-a9d2-a7a3013b2b51.png" />
-<a/>
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-repository-url/FoodFrenzy.git
+    git clone https://github.com/itzBonCar/FoodFrenzy.git
     ```
 
 2. Navigate to the project directory:
@@ -62,7 +49,8 @@ Before running this project, ensure you have the following installed:
     ```
 
 5. Access the application:
-    - Navigate to `http://localhost:8080` in your browser. 
+    - Navigate to `http://localhost:8080` in your browser.
+
 ## Website Screenshot
 
 Here is a preview of the FoodFrenzy interface:
