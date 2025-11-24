@@ -9,7 +9,7 @@ pipeline {
 
   environment {
     DOCKER_IMAGE_NAME = "FoodFrenzy"
-    DOCKERHUB_REPO = "itzBonCar/FoodFrenzy"
+    DOCKERHUB_REPO = "itzBonCar/food_frenzy"
     K8S_NAMESPACE  = "foodfrenzy-ns"
     K8S_MANIFEST_DIR = "k8s"
     MAVEN_OPTS = "-Xmx1g"

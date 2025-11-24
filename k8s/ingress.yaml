@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: foodfrenzy-ingress
+  namespace: foodfrenzy-ns
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+  - host: foodfrenzy.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: foodfrenzy
+            port:
+              number: 8080

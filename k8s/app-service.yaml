@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: foodfrenzy
+  namespace: foodfrenzy-ns
+spec:
+  selector:
+    app: foodfrenzy
+  ports:
+    - port: 8080
+      targetPort: 8080
+  type: ClusterIP
