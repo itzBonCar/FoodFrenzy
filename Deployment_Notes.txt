@@ -80,7 +80,7 @@ docker run -d \
   -e MYSQL_PASSWORD=carbon123 \
   itzboncar/food_frenzy_mysql:latest
 
-### PUSH it to DOCKERHUB
+### PUSH it to DOCKERHUB Account itzboncar
     $ docker build -f Dockerfile.mysql -t food_frenzy_mysql:latest .
     $ docker login
     $ docker tag food_frenzy_mysql:latest itzboncar/food_frenzy_mysql:latest
@@ -106,8 +106,7 @@ $ docker-compose down --rmi all (removes all images)
 
 
 ##### NEXT GOALS:
-Deploy it in local k8s cluster
 Make it secure
 create helm chart
 create terraform script
-Create a Jenkins pipeline
+Use Ansible
