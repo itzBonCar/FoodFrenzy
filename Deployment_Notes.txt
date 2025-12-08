@@ -106,6 +106,7 @@ $ docker-compose down --rmi all (removes all images)
 
 
 ##### NEXT GOALS:
+Send Mail if pipeline fails
 Make it secure
 create helm chart
 create terraform script
