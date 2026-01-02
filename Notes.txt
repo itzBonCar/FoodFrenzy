@@ -1,0 +1,74 @@
+Unstage Git files:
+git add .
+git --restore staged .
+
+REBASING:
+    Remote feature/login: A-B-C
+    Remote main: A-B-C
+When working alone on a feature branch, you make commit D, 
+    Local feature/login: A-B-C-D, 
+
+But, main moves forward 
+    Remote main: A-B-C-X
+No problem pushing 
+    $ git push origin feature/login # works fine
+Now, 
+    Remote feature/login: A-B-C-D
+    Remote main: A-B-C-X
+
+Problem comes when merging to main, history won't match since main moved forward
+Now, since feature/login is your branch alone(not shared), you can rebase, then merge feature/login to main in remote repo.
+    $ git fetch origin
+    Local:
+        origin/main: A-B-C-X
+        feature/login: A-B-C-D
+        after rebase: 
+        feature/login: A-B-C-X-D'
+    $ git checkout feature/login
+    $ git rebase origin/main
+    $ git push --force-with-lease origin feature/login # Safe, your branch only so you can force push
+
+    OR
+    $ git checkout feature/login    # git checkout main is DANGEROUS
+    $ git pull --rebase 
+    equivalent to  
+    $ git fetch
+    $ git rebase origin/current-branch
+
+Then, Open PR/merge safely
+    remote main: A-B-C-X-M
+                        \/
+                        D'
+
+Option A:
+    Open a PR:
+        $ git push origin feature/login
+        Now on github/gitlab, compare branch main and feature/login, Click Create Pull Request
+        CI will be triggered and one of merge strategy will be used; Merge, Squash Merge, Rebase & merge(sometimes)
+        remote main: A-B-C-X-M
+                            \/
+                            D'
+
+Option B:
+    Merge locally(small teams, solo):
+        $ git checkout main
+        $ git pull origin main
+        $ git merge feature/login
+        $ git push origin main
+
+Error: Branch is out of date
+    when main moves forward and feature/login not caught up
+
+REMEMBER:
+Feature branch:
+- You rebase
+- You resolve conflicts
+    $ git add login.js
+    $ git rebase --continue
+    Repeat for each conflicted commit
+- You force-with-lease push
+
+Main branch:
+- You merge
+- You never rebase
+- You never force-push
