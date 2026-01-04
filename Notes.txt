@@ -1,12 +1,31 @@
+Alias Git commands:
+git config --global alias.lg "log --oneline --graph --all"
+
+Check git remote:
+$ git remote -v
+
+Using Git log:
+$ git log -n 5  # Show only the last 5 commits
+$ git log # q to quit, spacebar
+$ git log --oneline
+$ git log --stat
+$ git log -p
+$ git log --graph
+$ git log --oneline --graph --decorate
+$ git log --grep="bug fix"
+$ git log main..feature-branch # Shows all commits that are present in the second commit's history but not in the first commit's history
+$ git log --oneline --graph --since="1 week ago" --author="yourname"
+
 Unstage Git files:
-git add .
-git --restore staged .
+$ git add .
+$ git --restore staged .
 
 Git PULL:
-git pull = git fetch + git merge
-git fetch safe as it doesn't merge instantly
+$ git pull = git fetch + git merge
+$ git fetch safe as it doesn't merge instantly
 
 CHECK IF REBASE NEEDED:
+    git status
     git log --oneline --graph --decorate --all
     git log origin/main..HEAD
         # Output shown: Rebase might be needed
