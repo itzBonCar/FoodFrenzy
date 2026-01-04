@@ -2,6 +2,22 @@ Unstage Git files:
 git add .
 git --restore staged .
 
+Git PULL:
+git pull = git fetch + git merge
+git fetch safe as it doesn't merge instantly
+
+CHECK IF REBASE NEEDED:
+    git log --oneline --graph --decorate --all
+    git log origin/main..HEAD
+        # Output shown: Rebase might be needed
+        # No Output: No rebase needed
+    git log HEAD..origin/main
+        # Output shown: Rebase might be needed
+        # No Output: No rebase needed
+    git log --left-right --oneline origin/main...HEAD
+        > → commits only on your branch
+        < → commits only on main
+
 REBASING:
     Remote feature/login: A-B-C
     Remote main: A-B-C
