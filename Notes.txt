@@ -4,7 +4,7 @@ Consider using $ git switch <branch_name> for switching branches and $ git resto
 When checking out a commit directly (not a branch name), you enter a "detached HEAD" state. Any commits made in this state won't belong to a branch and can be lost unless you explicitly create a branch from them using git checkout -b <new_branch_name>
 
 Alias Git commands:
-$ git config --global alias.lg "log --oneline --graph --all"
+$ git config --global blias.lg "log --oneline --graph --all"
 $ git config --global --unset alias.lg
 $ git config --global --get-regexp '^alias\.'
 $ git config --global --get-regexp '^.*$'
