@@ -1,3 +1,7 @@
+Git Best Practises:
+Before switching branches with uncommitted changes, it is best practice to either commit or stash your changes to avoid potential conflicts or data loss.
+Consider using $ git switch <branch_name> for switching branches and $ git restore <file_path> for restoring files for a clearer workflow.
+
 Alias Git commands:
 git config --global alias.lg "log --oneline --graph --all"
 
