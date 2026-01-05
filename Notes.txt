@@ -1,8 +1,24 @@
 Alias Git commands:
-git config --global alias.lg "log --oneline --graph --all"
+$ git config --global alias.lg "log --oneline --graph --all"
+$ git config --global --unset alias.lg
+$ git config --global --get-regexp '^alias\.'
+$ git config --global --get-regexp '^.*$'
+
+Git Branch:
+$ git switch <branch-name>
+$ git switch -c <branch-name>
+$ git switch --detach <commit-hash>
+
+$ git checkout -b new-feature   # create new branch, switch to it
+$ git checkout <commit_hash_or_tag_name>    # checkout a specific commit, takes you to Detached mode, moves head to tht commit
+$ git branch -a                 # list all local and remote branches
+$ git branch -d new-feature     # delete branch new-feature from local
+$ git branch -D new-feature     # force delete branch new-feature from local
+$ git push -d new-feature       # delete branch from remote
 
 Check git remote:
 $ git remote -v
+$ git remote show origin
 
 Using Git log:
 $ git log -n 5  # Show only the last 5 commits
@@ -15,6 +31,8 @@ $ git log --oneline --graph --decorate
 $ git log --grep="bug fix"
 $ git log main..feature-branch # Shows all commits that are present in the second commit's history but not in the first commit's history
 $ git log --oneline --graph --since="1 week ago" --author="yourname"
+$ git log --oneline --graph --decorate --all --pretty=format:"%h %an %s"
+$ git log --oneline --graph --decorate --all --author itzBonCar
 
 Unstage Git files:
 $ git add .
