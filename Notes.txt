@@ -9,11 +9,19 @@ $ git config --global --unset alias.lg
 $ git config --global --get-regexp '^alias\.'
 $ git config --global --get-regexp '^.*$'
 
+
+
 Git Stash:
 $ git stash         # doesn't include new files not staged inside working copy for that use -u
 $ git stash -u
+$ git stash push -m "WIP: feature login"   # stash with a message
 $ git stash pop     # clears stash and pops out the changes to working copy
 $ git stash apply   # keeps changes in stash while also applying to working copy
+$ git stash apply stash@{1}
+$ git stash drop stash@{0}
+$ git stash clear   # clear whole stash
+$ git stash list
+$ git stash branch <branchname> # create branch from stash
 
 Git Branch:
 $ git switch <branch-name>
