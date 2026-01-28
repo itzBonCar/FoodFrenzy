@@ -33,7 +33,7 @@ pipeline {
         script {
           // tag: username/repo:branch-buildnum
           def shortCommit = sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
-          def tag = "${env.BRANCH_NAME}-${env.BUILD_NUMBER}-${shortCommit}"
+          def tag = "${env.BRANCH_NAME ?: 'main'}-${env.BUILD_NUMBER}-${shortCommit}"
           env.IMAGE_TAG = tag
           sh "docker build -t ${env.DOCKERHUB_REPO}:${tag} ."
         }
@@ -46,8 +46,8 @@ pipeline {
           sh 'echo $DOCKERHUB_PASS | docker login -u $DOCKERHUB_USER --password-stdin'
           sh "docker push ${env.DOCKERHUB_REPO}:${env.IMAGE_TAG}"
           // update latest tag
-          sh "docker tag ${env.DOCKERHUB_REPO}:${env.IMAGE_TAG} ${DOCKERHUB_REPO}:latest || true"
-          sh "docker push ${DOCKERHUB_REPO}:latest || true"
+          sh "docker tag ${env.DOCKERHUB_REPO}:${env.IMAGE_TAG} ${env.DOCKERHUB_REPO}:latest || true"
+          sh "docker push ${env.DOCKERHUB_REPO}:latest || true"
         }
       }
     }
@@ -55,19 +55,20 @@ pipeline {
     stage('Deploy to K3s') {
       steps {
         withCredentials([file(credentialsId: 'kubeconfig-file', variable: 'KUBECONFIG_FILE')]) {
-          sh '''
-            export KUBECONFIG=${KUBECONFIG_FILE}
-            # update image with a rolling update
-            kubectl -n ${K8S_NAMESPACE} set image deployment/foodfrenzy foodfrenzy=${DOCKERHUB_REPO}:${IMAGE_TAG} --record || true
-            kubectl -n ${K8S_NAMESPACE} apply -f ${K8S_MANIFEST_DIR}/
-          '''
+          sh """
+            export KUBECONFIG=\$KUBECONFIG_FILE
+            # Apply manifests first to ensure resources exist
+            kubectl -n ${env.K8S_NAMESPACE} apply -f ${env.K8S_MANIFEST_DIR}/
+            # Update image with a rolling update
+            kubectl -n ${env.K8S_NAMESPACE} set image deployment/foodfrenzy foodfrenzy=${env.DOCKERHUB_REPO}:${env.IMAGE_TAG} --record
+          """
         }
       }
     }
   }
 
   post {
-    success { echo "Deployed ${DOCKERHUB_REPO}:${IMAGE_TAG}" }
+    success { echo "Deployed ${env.DOCKERHUB_REPO}:${env.IMAGE_TAG}" }
     failure { echo "Pipeline failed" }
   }
 }
