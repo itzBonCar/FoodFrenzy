@@ -92,9 +92,9 @@ $ git switch --detach <commit-hash>
 
 $ git checkout -b new-feature   # create new branch, switch to it
 $ git checkout <commit_hash_or_tag_name>    # checkout a specific commit, takes you to Detached mode, moves head to tht commit
-$ git branch -m <new-branch>    # Newly created branch with master do 
-    $ git checkout master
-    $ git branch -m main        # this changes the local branch master to main and points to it
+
+$ git checkout master       # Change name of newly created master branch to main
+$ git branch -m main        # this changes the local branch master to main and points to it
 $ git branch -a                 # list all local and remote branches
 $ git branch -d new-feature     # delete branch new-feature from local
 $ git branch -D new-feature     # force delete branch new-feature from local
