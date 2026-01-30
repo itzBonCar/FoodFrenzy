@@ -1,4 +1,4 @@
-#### Run application locally
+########################################### Run application locally ################################################
 
 Create a Mysql connection
 Run the mysql server locally by starting the MySQL80 service which can be found in Services settings. Use it to manually turn on/off the service
@@ -26,7 +26,7 @@ set +a
 NOW, open the app on http://localhost:8080 locally
 
 
-#### Dockerize the application by creating Docker image using Dockerfile
+################################### Dockerize application by creating Docker image using Dockerfile ############################################
 Build the image with the following command and then run docker container for it
 
 $ docker build -t foodfrenzyimage:v01 .
@@ -72,13 +72,13 @@ $ docker-compose down --rmi all (removes all images)
 
 .env is put in gitignore
 
-### DEPLOY TO LOCAL K8S cluster
+############################################# DEPLOY TO LOCAL K8S cluster #######################################################
 
 
 
-##### NEXT GOALS:
+############################################ NEXT GOALS:##################################################
 Send Mail if pipeline fails
-Make it secure
+Make it secure, best practises
 create helm chart
 create terraform script
 Use Ansible
