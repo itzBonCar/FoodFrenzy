@@ -1,6 +1,8 @@
 #########################################################################################################
 
-######### Imp git commands 
+############################### 
+
+############################### Imp git commands ##################################
 $ git remote add origin <repo-url>
 
 
@@ -58,7 +60,13 @@ $ docker logs -f <container-name>
 
 #########################################################################################################
 
-QUICK Git Commands:
+####################################### QUICK Git Commands: #########################################
+Fork other repo to create your copy of their code.
+git clone https://github.com/itzBonCar/nodejs-demoapp.git
+Make changes to your copy, commit, push to your remote copy.
+Can fetch changes from original remote copy and merge into your copy.
+Finally, ask for a PR.
+
 git init
 git remote add origin <url>
 git configure --global user.email "92singh.yuvraj@gmail.com"
@@ -102,6 +110,7 @@ git pull origin feature/login
 FINALLY,
 git push origin feature/login
 
+###########################################################################################################################
 
 Git Best Practises:
 Before switching branches with uncommitted changes, it is best practice to either commit or stash your changes to avoid potential conflicts or data loss.
