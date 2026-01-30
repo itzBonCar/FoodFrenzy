@@ -1,3 +1,30 @@
+#### Run application locally
+
+Create a Mysql connection
+Run the mysql server locally by starting the MySQL80 service which can be found in Services settings. Use it to manually turn on/off the service
+mysql -u root -p    # to access db using cli, if host and port different ,mysql -h localhost -P 3306 -u root -p
+      CREATE DATABASE food_frenzy_db;
+      USE food_frenzy_db;
+      SELECT COUNT(*) FROM table_name;
+      SHOW TABLES;
+      INSERT INTO users (username, email) VALUES ('john', 'john@example.com');
+      SELECT id, username FROM users;
+      SELECT * FROM users WHERE id = 1;
+      QUIT;
+
+      NOTE: Check service, ps aux | grep mysql
+            Check port, lsof -i :3306
+
+Now link it to your application by configuring it in FoodFrenzy\src\main\resources\application.properties
+Setup .env file with env vars for spring properties in application.properties and env vars for docker-compose mysql container
+NOW, Build and run the application locally
+mvn clean install -DskipTests # to build the project
+set -a
+source .env     # do this to use the .env vars
+set +a
+./mvnw spring-boot:run OR java -jar app.jar
+NOW, open the app on http://localhost:8080 locally
+
 
 #### Dockerize the application by creating Docker image using Dockerfile
 Build the image with the following command and then run docker container for it
