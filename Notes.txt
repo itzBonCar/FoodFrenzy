@@ -88,10 +88,11 @@ git fetch
 INSPECT CHANGES,
 git log HEAD..origin/main
 git log --oneline --left-right --graph HEAD...origin/main
-git log --oneline --graph --decorate
+git log --left-right --oneline origin/main...HEAD
+git log --oneline --graph --decorate --all
 git diff HEAD..origin/main
 git status -sb
-git log --left-right --oneline origin/main...HEAD
+
 After Fetch, (assuming we want to merge to origin/feature/login branch which is ahead from our local branch)
 git checkout feature/login
 git merge origin/feature/login OR git rebase origin/feature/login
