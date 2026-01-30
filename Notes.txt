@@ -58,6 +58,43 @@ $ docker logs -f <container-name>
 
 #########################################################################################################
 
+QUICK Git Commands:
+git init
+git remote add origin <url>
+git configure --global user.email "92singh.yuvraj@gmail.com"
+git clone <url>
+git checkout master
+git branch -m master main
+git push -u origin main
+IMP: Go to github and change default branch to 'main'. Only then follow next steps
+git push origin -d master
+git branch --unset-upstream
+git branch -u origin/main
+git branch -a
+git status -sb
+IMP: Now other devs should run
+  git fetch origin
+  git branch -m master main
+  git branch -u origin/main main
+
+git checkout -b feature/login
+git checkout main
+NOW: Make changes to files then,
+git status
+git add .  # To unstage, git --restore staged .
+git commit -m "changed notes"
+git fetch
+Fetch Changes
+git log HEAD..origin/main
+git log --oneline --left-right --graph HEAD...origin/main
+git log --oneline --graph --decorate
+git diff HEAD..origin/main
+git status -sb
+After Fetch, (assuming we want to merge to origin/feature/login branch which is ahead from our local branch)
+git checkout feature/login
+git merge origin/feature/login OR git rebase origin/feature/login
+CAN, pull(= fetch + merge) if you know you want to merge instantly
+git pull origin feature/login
 
 
 Git Best Practises:
