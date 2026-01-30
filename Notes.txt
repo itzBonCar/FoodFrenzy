@@ -83,13 +83,15 @@ NOW: Make changes to files then,
 git status
 git add .  # To unstage, git restore --staged .
 git commit -m "changed notes"
+FETCH CHANGES,
 git fetch
-Fetch Changes
+INSPECT CHANGES,
 git log HEAD..origin/main
 git log --oneline --left-right --graph HEAD...origin/main
 git log --oneline --graph --decorate
 git diff HEAD..origin/main
 git status -sb
+git log --left-right --oneline origin/main...HEAD
 After Fetch, (assuming we want to merge to origin/feature/login branch which is ahead from our local branch)
 git checkout feature/login
 git merge origin/feature/login OR git rebase origin/feature/login
