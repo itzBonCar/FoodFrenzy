@@ -81,7 +81,7 @@ git checkout -b feature/login
 git checkout main
 NOW: Make changes to files then,
 git status
-git add .  # To unstage, git --restore staged .
+git add .  # To unstage, git restore --staged .
 git commit -m "changed notes"
 git fetch
 Fetch Changes
@@ -94,7 +94,10 @@ After Fetch, (assuming we want to merge to origin/feature/login branch which is 
 git checkout feature/login
 git merge origin/feature/login OR git rebase origin/feature/login
 CAN, pull(= fetch + merge) if you know you want to merge instantly
+git checkout feature/login
 git pull origin feature/login
+FINALLY,
+git push origin feature/login
 
 
 Git Best Practises:
