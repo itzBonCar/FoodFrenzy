@@ -46,6 +46,11 @@ Deployment
     mvn spring-boot:run
     or 
     mvn spring-boot:run -Dspring-boot.run.profiles=local
+
+    or 
+    mvn clean package -DskipTests
+    java -jar target/FoodFrenzy-0.0.1-SNAPSHOT.jar \
+    --spring.profiles.active=local
     ```
 
 5. Access the application:
