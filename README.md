@@ -44,6 +44,8 @@ Deployment
 4. Run the project:
     ```bash
     mvn spring-boot:run
+    or 
+    mvn spring-boot:run -Dspring-boot.run.profiles=local
     ```
 
 5. Access the application:
